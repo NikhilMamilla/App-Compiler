@@ -1,0 +1,209 @@
+[
+  {
+    "id": "real_01",
+    "category": "real",
+    "prompt": "Build a CRM with login, contacts, dashboard, role-based access, and premium plan with payments. Admins can see analytics.",
+    "expected": {
+      "min_entities": 3,
+      "required_roles": ["admin"],
+      "requires_auth": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "real_02",
+    "category": "real",
+    "prompt": "Build an e-commerce store with product listings, shopping cart, checkout with Stripe, order history, and an admin panel to manage inventory.",
+    "expected": {
+      "min_entities": 4,
+      "required_roles": ["admin", "customer"],
+      "requires_auth": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "real_03",
+    "category": "real",
+    "prompt": "Create a project management tool like Trello. Users can create boards, lists, and cards. Teams can collaborate and assign tasks. Free and pro plans available.",
+    "expected": {
+      "min_entities": 4,
+      "required_roles": ["admin", "member"],
+      "requires_auth": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "real_04",
+    "category": "real",
+    "prompt": "Build a multi-tenant SaaS invoicing app. Users can create clients, generate invoices with line items, send them via email, and track payment status.",
+    "expected": {
+      "min_entities": 4,
+      "required_roles": ["admin", "user"],
+      "requires_auth": true,
+      "requires_payments": false
+    }
+  },
+  {
+    "id": "real_05",
+    "category": "real",
+    "prompt": "Build a job board where companies can post jobs and candidates can apply. Companies have a dashboard to manage postings and review applications.",
+    "expected": {
+      "min_entities": 4,
+      "required_roles": ["company", "candidate"],
+      "requires_auth": true,
+      "requires_payments": false
+    }
+  },
+  {
+    "id": "real_06",
+    "category": "real",
+    "prompt": "Create a learning management system. Instructors can create courses with video lessons and quizzes. Students can enroll, track progress, and get certificates.",
+    "expected": {
+      "min_entities": 5,
+      "required_roles": ["instructor", "student"],
+      "requires_auth": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "real_07",
+    "category": "real",
+    "prompt": "Build a restaurant reservation system. Customers can book tables, restaurants can manage availability and view upcoming reservations. Email confirmations sent automatically.",
+    "expected": {
+      "min_entities": 3,
+      "required_roles": ["restaurant", "customer"],
+      "requires_auth": true,
+      "requires_payments": false
+    }
+  },
+  {
+    "id": "real_08",
+    "category": "real",
+    "prompt": "Create a social media analytics dashboard. Connect Twitter and Instagram APIs, show follower growth, engagement rates, and top posts. Export reports as PDF.",
+    "expected": {
+      "min_entities": 3,
+      "required_roles": ["admin", "viewer"],
+      "requires_auth": true,
+      "requires_payments": false
+    }
+  },
+  {
+    "id": "real_09",
+    "category": "real",
+    "prompt": "Build a subscription newsletter platform. Writers can publish posts, readers can subscribe with free or paid tiers, and writers get revenue sharing from paid subscriptions.",
+    "expected": {
+      "min_entities": 4,
+      "required_roles": ["writer", "reader"],
+      "requires_auth": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "real_10",
+    "category": "real",
+    "prompt": "Create a healthcare patient portal. Patients can book appointments, view lab results, and message their doctor. Doctors can manage schedules and update records.",
+    "expected": {
+      "min_entities": 5,
+      "required_roles": ["doctor", "patient"],
+      "requires_auth": true,
+      "requires_payments": false
+    }
+  },
+  {
+    "id": "edge_01",
+    "category": "edge_vague",
+    "prompt": "Build an app for my business.",
+    "expected": {
+      "min_entities": 1,
+      "should_have_clarifications": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_02",
+    "category": "edge_vague",
+    "prompt": "Make something like Airbnb but different.",
+    "expected": {
+      "min_entities": 2,
+      "should_have_clarifications": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_03",
+    "category": "edge_conflicting",
+    "prompt": "Build a completely free app with no ads that also generates revenue through premium subscriptions and one-time payments.",
+    "expected": {
+      "should_flag_conflicts": true,
+      "should_not_crash": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "edge_04",
+    "category": "edge_conflicting",
+    "prompt": "All users should be admins. Also only admins can see the admin panel. Regular users cannot access anything admins can.",
+    "expected": {
+      "should_flag_conflicts": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_05",
+    "category": "edge_incomplete",
+    "prompt": "Add a payment system.",
+    "expected": {
+      "should_have_clarifications": true,
+      "should_not_crash": true,
+      "requires_payments": true
+    }
+  },
+  {
+    "id": "edge_06",
+    "category": "edge_incomplete",
+    "prompt": "Login page with forgot password.",
+    "expected": {
+      "min_entities": 1,
+      "requires_auth": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_07",
+    "category": "edge_overloaded",
+    "prompt": "Build a super app with social networking, e-commerce, food delivery, ride sharing, video streaming, banking, healthcare appointments, job listings, real estate, and a news feed. All with AI recommendations and blockchain payments.",
+    "expected": {
+      "min_entities": 5,
+      "should_not_crash": true,
+      "requires_auth": true
+    }
+  },
+  {
+    "id": "edge_08",
+    "category": "edge_vague",
+    "prompt": "Build a dashboard.",
+    "expected": {
+      "should_have_clarifications": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_09",
+    "category": "edge_conflicting",
+    "prompt": "Build an app where data is both public and private. Anyone can see everything but also nothing is visible without login.",
+    "expected": {
+      "should_flag_conflicts": true,
+      "should_not_crash": true
+    }
+  },
+  {
+    "id": "edge_10",
+    "category": "edge_incomplete",
+    "prompt": "Users, posts, comments, likes. Make it work.",
+    "expected": {
+      "min_entities": 4,
+      "requires_auth": true,
+      "should_not_crash": true
+    }
+  }
+]

@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+*.log
+
+# Cache & Temporary
+cache/
+pipeline/cache/
+*.json
+!eval/test_cases.json
+!frontend/package.json
+!frontend/tsconfig.json
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/src/assets/
+
+# OS
+.DS_Store
+Thumbs.db
